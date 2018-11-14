@@ -6,9 +6,10 @@ def PerformRandomWalk(agentMatrix):
 
 	end
 
-def PerformInfection(agentMatrix):
+def PerformSpread(agentMatrix):
 
 	end
+	
 def Initialize agentMatrix(timeSteps, latticeSize):
 	agentMatrix = np.zeros((timeSteps,3,latticeSize,latticeSize)) # first parameter: timestep, second: nbrOfStates, rest is standard m x n matrix type.
 	for iRow in range(1,latticeSize):
