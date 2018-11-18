@@ -81,12 +81,11 @@ if(runRandomWalk == True):
 
 
 
-d = 0.8;
+d = 0.8; nRuns = 1
 latticeSize = 100; numberOfAgents = 1000; ratio = 0.99
-gammaRuns = np.array([0.7,0.5,0.4,0.3, 0.2, 0.1, 0.08, 0.01])
-betaRuns = np.array([0.8, 0.4])
+gammaRuns = np.array([0.3, 0.2, 0.1, 0.05, 0.03, 0.02, 0.017, 0.015, 0.013, 0.01])
+betaRuns = np.array([0.8])
 if(runMainSimulation == True):
-	nRuns = 10
 	R_storedRuns = np.zeros(( nRuns, np.size(betaRuns) , np.size(gammaRuns) ))
 	for iRun in range(0,nRuns):
 		print iRun
@@ -152,12 +151,13 @@ R = np.average(R_storedRuns,0)
 
 plt.figure(1)
 
-plt.plot(betaRuns[0] / gammaRuns, R[0,:])
-plt.plot(betaRuns[1] / gammaRuns, R[1,:])
+for i in range(0,np.size(betaRuns)):
+	plt.scatter(betaRuns[i] / gammaRuns, R[i,:])
+
 
 plt.ylabel('R_inf')
 plt.xlabel('beta / gamma')
-plt.legend([betaRuns[0], betaRuns[1]])
+plt.legend([betaRuns[0]])#, betaRuns[1]])
 plt.show()
 
 
