@@ -83,16 +83,17 @@ if(runRandomWalk == True):
 
 d = 0.8; nRuns = 1
 latticeSize = 100; numberOfAgents = 1000; ratio = 0.99
-gammaRuns = np.array([0.3, 0.2, 0.1, 0.05, 0.03, 0.02, 0.017, 0.015, 0.013, 0.01])
+gammaRuns = np.array([0.3, 0.2,0.1,0.05,0.03,0.02,0.017,0.015,0.013,0.010])
 betaRuns = np.array([0.8])
 if(runMainSimulation == True):
 	R_storedRuns = np.zeros(( nRuns, np.size(betaRuns) , np.size(gammaRuns) ))
 	for iRun in range(0,nRuns):
-		print iRun
+		print 'iRun = %i' %iRun
 		iBeta = 0
 		for beta in betaRuns:
 			iGamma = 0
 			for gamma in gammaRuns:
+				print 'iGamma = %i' %iGamma
 				agentMatrix = InitializeAgentMatrix(numberOfAgents, latticeSize)
 				SnbrSusceptible = np.array([])
 				SnbrInfected = np.array([])
